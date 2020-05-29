@@ -1,3 +1,11 @@
+<use name="FWCore/Framework"/>
+<library file="*tp1.cc" name="Trials">
+  <use name="DataFormats/BTauReco"/>
+  <use name="RecoBTag/TensorFlow"/>
+  <use name="PhysicsTools/TensorFlow"/>
+  <flags EDM_PLUGIN="1"/>
+</library>
+
 <bin name="Trial" file="testRunner.cpp,tp1.cc">
   <use name="tensorflow-cc"/>
   <use name="boost_filesystem"/>
