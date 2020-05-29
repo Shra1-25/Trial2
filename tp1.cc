@@ -3,7 +3,7 @@
 
 using namespace tensorflow;
 
-int main2(int argc, char* argv[]) {
+int main2() {
   // Initialize a tensorflow session
   Session* session;
   Status status = NewSession(SessionOptions(), &session);
