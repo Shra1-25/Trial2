@@ -1,6 +1,0 @@
-<bin name="Trial" file="testRunner.cpp,tp1.cc">
-  <use name="tensorflow-cc"/>
-  <use name="boost_filesystem"/>
-  <use name="cppunit"/>
-  <use name="FWCore/Utilities"/>
-</bin>
