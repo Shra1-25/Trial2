@@ -1,6 +1,7 @@
 #include "tensorflow/core/public/session.h"
 #include "tensorflow/core/graph/default_device.h"
 using namespace tensorflow;
+using namespace std;
 
 int main(int argc, char* argv[]) {
 
