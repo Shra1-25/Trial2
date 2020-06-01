@@ -36,32 +36,33 @@ int main(int argc, char* argv[]) {
     //std::copy_n(X_vec.begin(), X_vec.size(), x.flat<float>().data());
     auto _XTensor = x.matrix<float>();
     auto _YTensor = y.matrix<float>();
+    std::cout<<"Done1"<<endl;
     
     std::ifstream  data("X_data.csv");
     std::string line;
-    int i=0;
+    int i_idx=0;
     while(std::getline(data,line))
     {
         std::stringstream lineStream(line);
         std::string cell;
         std::vector<float> parsedRow;
-        int j=0;
+        int j_idx=0;
         while(std::getline(lineStream,cell,','))
         {
-            _XTensor(i,j)=std::stof(cell);
+            _XTensor(i_idx,j_idx)=std::stof(cell);
             parsedRow.push_back(std::stof(cell));
-            j++;
+            j_idx++;
         }
 
         //X_vec.push_back(parsedRow);
-        cout<<i<<" "<<parsedRow[0]<<" to "<<parsedRow[31]<<endl;
-        i++;
+        std::cout<<i_idx<<" "<<parsedRow[0]<<" to "<<parsedRow[31]<<" Done "<<endl;
+        i_idx++;
     }
-    
+    std::cout<<"Done2"<<endl;
     //_XTensor.setRandom();
     //std::copy_n(X_vec.begin(), X_vec.size(), _XTensor.flat<float>().data());
     _YTensor.setRandom();
-
+    std::cout<<"Done3"<<endl;
     for (int i = 0; i < 10; ++i) {
         
         TF_CHECK_OK(session->Run({{"x", x}, {"y", y}}, {"cost"}, {}, &outputs)); // Get cost
