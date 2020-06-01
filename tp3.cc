@@ -56,7 +56,7 @@ int main(int argc, char* argv[]) {
     auto _YTensor = y.matrix<float>();
 
     //_XTensor.setRandom();
-    _XTensor=parsedCsv
+    _XTensor=parsedCsv;
     _YTensor.setRandom();
 
     for (int i = 0; i < 10; ++i) {
