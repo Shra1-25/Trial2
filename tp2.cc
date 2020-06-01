@@ -12,18 +12,18 @@ int main(int argc, char* argv[]) {
     SessionOptions opts;
     std::vector<Tensor> outputs; // Store outputs
     TF_CHECK_OK(ReadBinaryProto(Env::Default(), graph_definition, &graph_def));
-	std::cout<<"Done1"<<endl;
+	//std::cout<<"Done1"<<endl;
     // Set GPU options
     //graph::SetDefaultDevice("/gpu:0", &graph_def);
     //opts.config.mutable_gpu_options()->set_per_process_gpu_memory_fraction(0.5);
     //opts.config.mutable_gpu_options()->set_allow_growth(true);
-	std::cout<<"Done2"<<endl;
+	//std::cout<<"Done2"<<endl;
     // create a new session
     TF_CHECK_OK(NewSession(opts, &session));
-	std::cout<<"Done3"<<endl;
+	//std::cout<<"Done3"<<endl;
     // Load graph into session
     TF_CHECK_OK(session->Create(graph_def));
-	std::cout<<"Done4"<<endl;
+	//std::cout<<"Done4"<<endl;
     // Initialize our variables
     TF_CHECK_OK(session->Run({}, {}, {"init_all_vars_op"}, nullptr));
 
@@ -34,7 +34,7 @@ int main(int argc, char* argv[]) {
 	std::cout<<"Done";
     _XTensor.setRandom();
     _YTensor.setRandom();
-	std::cout<<"Done5"<<endl;
+	//std::cout<<"Done5"<<endl;
     for (int i = 0; i < 10; ++i) {
         
         TF_CHECK_OK(session->Run({{"x", x}, {"y", y}}, {"cost"}, {}, &outputs)); // Get cost
