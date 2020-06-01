@@ -52,11 +52,10 @@ int main(int argc, char* argv[]) {
 
     Tensor x(DT_FLOAT, TensorShape({100, 32}));
     Tensor y(DT_FLOAT, TensorShape({100, 8}));
-    auto _XTensor = x.matrix<float>();
+    auto _XTensor = x.matrix<float>(parsedCsv);
     auto _YTensor = y.matrix<float>();
 
     //_XTensor.setRandom();
-    _XTensor=parsedCsv;
     _YTensor.setRandom();
 
     for (int i = 0; i < 10; ++i) {
