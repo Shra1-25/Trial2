@@ -12,7 +12,7 @@ int main(int argc, char* argv[]) {
     
     std::ifstream  data("X_data.csv");
     std::string line;
-    std::vector<std::vector<float> > parsedCsv;
+    std::vector<std::vector<float> > X_vec;
     int i=0;
     while(std::getline(data,line))
     {
@@ -24,7 +24,7 @@ int main(int argc, char* argv[]) {
             parsedRow.push_back(std::stof(cell));
         }
 
-        parsedCsv.push_back(parsedRow);
+        X_vec.push_back(parsedRow);
         cout<<++i<<" "<<parsedRow[0]<<" to "<<parsedRow[31]<<endl;
     }
     
