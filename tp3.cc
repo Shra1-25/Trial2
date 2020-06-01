@@ -12,7 +12,7 @@ int main(int argc, char* argv[]) {
     
     std::ifstream  data("X_data.csv");
     std::string line;
-    std::vector<std::vector<float> > X_vec;
+    std::vector<std::array<float,32> > X_vec;
     int i=0;
     while(std::getline(data,line))
     {
