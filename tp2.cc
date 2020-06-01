@@ -3,7 +3,7 @@
 using namespace tensorflow;
 using namespace std;
 
-int main(int argc, char* argv[]) {
+int main2(int argc, char* argv[]) {
 
     std::cout<<"Hello"<<endl;
 	std::string graph_definition = "/home/cmsusr/CMSSW_11_0_1/src/Trial2/graph3.pb";
@@ -43,9 +43,9 @@ int main(int argc, char* argv[]) {
         TF_CHECK_OK(session->Run({{"x", x}, {"y", y}}, {}, {"train"}, nullptr)); // Train
         outputs.clear();
     }
-	std::cout<<"Done6"<<endl;
+	//std::cout<<"Done6"<<endl;
     session->Close();
     delete session;
-	std::cout<<"Done7"<<endl;
+	std::cout<<"Done"<<endl;
     return 0;
 }
