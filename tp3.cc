@@ -12,7 +12,7 @@ int main(int argc, char* argv[]) {
     
     std::ifstream  data("/home/cmsusr/CMSSW_11_0_1/src/Trial2/X_data.csv");
     std::string line;
-    std::vector<std::vector<float> > parsedCsv;
+    std::vector<std::vector<float> > X_vec;
     int i=0;
     while(std::getline(data,line))
     {
@@ -24,7 +24,7 @@ int main(int argc, char* argv[]) {
             parsedRow.push_back(std::stof(cell));
         }
 
-        parsedCsv.push_back(parsedRow);
+        X_vec.push_back(parsedRow);
         cout<<++i<<" "<<parsedRow[0]<<" to "<<parsedRow[31]<<endl;
     }
     
@@ -52,9 +52,9 @@ int main(int argc, char* argv[]) {
 
     Tensor x(DT_FLOAT, TensorShape({100, 32}));
     Tensor y(DT_FLOAT, TensorShape({100, 8}));
-    auto _XTensor = x.matrix<float>(parsedCsv);
+    auto _XTensor = x.matrix<float>();
     auto _YTensor = y.matrix<float>();
-
+    std::copy_n(X_vec.begin(), X_vec.size(), _XTensor.flat<float>().data())
     //_XTensor.setRandom();
     _YTensor.setRandom();
 
