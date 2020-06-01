@@ -18,10 +18,12 @@ int main(int argc, char* argv[]) {
     {
         std::stringstream lineStream(line);
         std::string cell;
-        std::vector<float> parsedRow;
+        std::array<float,32> parsedRow;
+        int j=0;
         while(std::getline(lineStream,cell,','))
         {
-            parsedRow.push_back(std::stof(cell));
+            parsedRow[j]=std::stof(cell);
+            //parsedRow.push_back(std::stof(cell));
         }
 
         X_vec.push_back(parsedRow);
