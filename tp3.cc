@@ -44,18 +44,18 @@ int main(int argc, char* argv[]) {
     {
         std::stringstream lineStream(line);
         std::string cell;
-        //std::array<float,32> parsedRow;
+        std::vector<float> parsedRow;
         int j=0;
         while(std::getline(lineStream,cell,','))
         {
             _XTensor(i,j)=std::stof(cell);
             parsedRow.push_back(std::stof(cell));
-            j++
+            j++;
         }
 
         //X_vec.push_back(parsedRow);
         cout<<i<<" "<<parsedRow[0]<<" to "<<parsedRow[31]<<endl;
-        i++
+        i++;
     }
     
     //_XTensor.setRandom();
