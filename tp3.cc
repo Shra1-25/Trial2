@@ -53,7 +53,7 @@ int main(int argc, char* argv[]) {
     Tensor x(DT_FLOAT, TensorShape({100, 32}));
     Tensor y(DT_FLOAT, TensorShape({100, 8}));
     std::copy_n(X_vec.begin(), X_vec.size(), x.flat<float>().data());
-    auto _XTensor = x.matrix<float>();
+    //auto _XTensor = x.matrix<float>();
     auto _YTensor = y.matrix<float>();
     
     //_XTensor.setRandom();
