@@ -12,20 +12,22 @@ int main(int argc, char* argv[]) {
     
     std::ifstream  data("/home/cmsusr/CMSSW_11_0_1/src/Trial2/X_data.csv");
     std::string line;
-    std::vector<std::vector<float> > X_vec;
-    int i=0;
+    float X_vec[100][32];
+    int i=0; 
     while(std::getline(data,line))
     {
         std::stringstream lineStream(line);
         std::string cell;
-        std::vector<float> parsedRow;
+        int j=0;
+        float parsedRow[32];
         while(std::getline(lineStream,cell,','))
         {
-            parsedRow.push_back(std::stof(cell));
+            X_vec[i][j]=std::stof(cell);
+            j++;
         }
-
-        X_vec.push_back(parsedRow);
-        cout<<++i<<" "<<parsedRow[0]<<" to "<<parsedRow[31]<<endl;
+        i++;
+        
+        cout<<i<<" "<<X_vec[i][0]<<" to "<<X_vec[i][31]<<endl;
     }
     
     
