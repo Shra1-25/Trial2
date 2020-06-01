@@ -8,28 +8,7 @@ using namespace tensorflow;
 using namespace std;
 
 int main(int argc, char* argv[]) {
-    std::cout<<"Hello"<<endl;
-    
-    std::ifstream  data("X_data.csv");
-    std::string line;
-    std::vector<std::array<float,32> > X_vec;
-    int i=0;
-    while(std::getline(data,line))
-    {
-        std::stringstream lineStream(line);
-        std::string cell;
-        std::array<float,32> parsedRow;
-        int j=0;
-        while(std::getline(lineStream,cell,','))
-        {
-            parsedRow[j]=std::stof(cell);
-            //parsedRow.push_back(std::stof(cell));
-        }
-
-        X_vec.push_back(parsedRow);
-        cout<<++i<<" "<<parsedRow[0]<<" to "<<parsedRow[31]<<endl;
-    }
-    
+    std::cout<<"Hello"<<endl;    
     
     std::string graph_definition = "/home/cmsusr/CMSSW_11_0_1/src/Trial2/graph3.pb";
     Session* session;
@@ -54,9 +33,30 @@ int main(int argc, char* argv[]) {
 
     Tensor x(DT_FLOAT, TensorShape({100, 32}));
     Tensor y(DT_FLOAT, TensorShape({100, 8}));
-    std::copy_n(X_vec.begin(), X_vec.size(), x.flat<float>().data());
-    //auto _XTensor = x.matrix<float>();
+    //std::copy_n(X_vec.begin(), X_vec.size(), x.flat<float>().data());
+    auto _XTensor = x.matrix<float>();
     auto _YTensor = y.matrix<float>();
+    
+    std::ifstream  data("X_data.csv");
+    std::string line;
+    int i=0;
+    while(std::getline(data,line))
+    {
+        std::stringstream lineStream(line);
+        std::string cell;
+        //std::array<float,32> parsedRow;
+        int j=0;
+        while(std::getline(lineStream,cell,','))
+        {
+            _XTensor(i,j)=std::stof(cell);
+            parsedRow.push_back(std::stof(cell));
+            j++
+        }
+
+        //X_vec.push_back(parsedRow);
+        cout<<i<<" "<<parsedRow[0]<<" to "<<parsedRow[31]<<endl;
+        i++
+    }
     
     //_XTensor.setRandom();
     //std::copy_n(X_vec.begin(), X_vec.size(), _XTensor.flat<float>().data());
