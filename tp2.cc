@@ -3,7 +3,7 @@
 using namespace tensorflow;
 using namespace std;
 
-int main2(int argc, char* argv[]) {
+int main(int argc, char* argv[]) {
 
     std::cout<<"Hello"<<endl;
 	std::string graph_definition = "/home/cmsusr/CMSSW_11_0_1/src/Trial2/graph3.pb";
