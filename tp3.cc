@@ -1,3 +1,7 @@
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <vector>
 #include "tensorflow/core/public/session.h"
 #include "tensorflow/core/graph/default_device.h"
 using namespace tensorflow;
@@ -5,6 +9,26 @@ using namespace std;
 
 int main(int argc, char* argv[]) {
     std::cout<<"Hello"<<endl;
+    
+    std::ifstream  data("X_data.csv");
+    std::string line;
+    std::vector<std::vector<float> > parsedCsv;
+    int i=0;
+    while(std::getline(data,line))
+    {
+        std::stringstream lineStream(line);
+        std::string cell;
+        std::vector<float> parsedRow;
+        while(std::getline(lineStream,cell,','))
+        {
+            parsedRow.push_back(std::stof(cell));
+        }
+
+        parsedCsv.push_back(parsedRow);
+        cout<<++i<<" "<<parsedRow[0]<<" to "<<parsedRow[31]<<endl;
+    }
+    
+    
     std::string graph_definition = "/home/cmsusr/CMSSW_11_0_1/src/Trial2/graph3.pb";
     Session* session;
     GraphDef graph_def;
@@ -31,7 +55,8 @@ int main(int argc, char* argv[]) {
     auto _XTensor = x.matrix<float>();
     auto _YTensor = y.matrix<float>();
 
-    _XTensor.setRandom();
+    //_XTensor.setRandom();
+    _XTensor=parsedCsv
     _YTensor.setRandom();
 
     for (int i = 0; i < 10; ++i) {
