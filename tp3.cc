@@ -60,14 +60,14 @@ int main(int argc, char* argv[]) {
     std::cout<<"Reading X_data done."<<endl;
     
     std::ifstream  data("Y_data.csv");
-    std::string line;
+    //std::string line;
     i_idx=0;
     while(std::getline(data,line))
     {
         std::stringstream lineStream(line);
         std::string cell;
         //std::vector<float> parsedRow;
-        j_idx=0;
+        int j_idx=0;
         
         while(std::getline(lineStream,cell,','))
         {
