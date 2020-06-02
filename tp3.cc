@@ -39,8 +39,11 @@ int main(int argc, char* argv[]) {
     std::cout<<"Done1"<<endl;
     
     std::ifstream  data("X_data.csv");
+    std::cout<<"Done12"<<endl;
     std::string line;
+    std::cout<<"Done3"<<endl;
     int i_idx=0;
+    std::cout<<"Done4 "<<i_idx<<endl;
     while(std::getline(data,line))
     {
         std::stringstream lineStream(line);
@@ -58,11 +61,11 @@ int main(int argc, char* argv[]) {
         std::cout<<i_idx<<" "<<parsedRow[0]<<" to "<<parsedRow[31]<<" Done "<<endl;
         i_idx++;
     }
-    std::cout<<"Done2"<<endl;
+    std::cout<<"Done5"<<endl;
     //_XTensor.setRandom();
     //std::copy_n(X_vec.begin(), X_vec.size(), _XTensor.flat<float>().data());
     _YTensor.setRandom();
-    std::cout<<"Done3"<<endl;
+    std::cout<<"Done6"<<endl;
     for (int i = 0; i < 10; ++i) {
         
         TF_CHECK_OK(session->Run({{"x", x}, {"y", y}}, {"cost"}, {}, &outputs)); // Get cost
