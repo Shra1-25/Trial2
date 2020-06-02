@@ -42,7 +42,7 @@ int main(int argc, char* argv[]) {
     std::cout<<"Done12"<<endl;
     std::string line;
     std::cout<<"Done3"<<endl;
-    int i_idx=0;
+    /*int i_idx=0;
     std::cout<<"Done4 "<<i_idx<<endl;
     while(std::getline(data,line))
     {
@@ -65,9 +65,9 @@ int main(int argc, char* argv[]) {
         //X_vec.push_back(parsedRow);
         std::cout<<i_idx<<" "<<parsedRow[0]<<" to "<<parsedRow[31]<<" Done "<<endl;
         i_idx++;
-    }
+    }*/
     std::cout<<"Done5"<<endl;
-    //_XTensor.setRandom();
+    _XTensor.setRandom();
     //std::copy_n(X_vec.begin(), X_vec.size(), _XTensor.flat<float>().data());
     _YTensor.setRandom();
     std::cout<<"Done6"<<endl;
@@ -82,6 +82,8 @@ int main(int argc, char* argv[]) {
 
     session->Close();
     delete session;
+    std::cout<<_YTensor(0,0)<<" "<<_YTensor(0,1)<<" "<<_YTensor(0,2)<<" "<<_YTensor(0,3)<<" "<<_YTensor(0,4)<<" "<<_YTensor(0,5)<<" "<<_YTensor(0,6)<<" "<<_YTensor(0,7)<<" "<<_YTensor(0,8)<<" "<<_YTensor(0,9)<<endl;
+    std::cout<<_YTensor(1,0)<<" "<<_YTensor(1,1)<<" "<<_YTensor(1,2)<<" "<<_YTensor(1,3)<<" "<<_YTensor(1,4)<<" "<<_YTensor(1,5)<<" "<<_YTensor(1,6)<<" "<<_YTensor(1,7)<<" "<<_YTensor(1,8)<<" "<<_YTensor(1,9)<<endl;
     std::cout<<"All done"<<endl;
     return 0;
 }
