@@ -7,7 +7,7 @@ using namespace std;
 
 int main(){
 
-std::ifstream  data("//home//cmsusr//CMSSW_11_0_1//src//Trial2//X_data.csv");
+std::ifstream  data("\\home\\cmsusr\\CMSSW_11_0_1\\src\\Trial2\\X_data.csv");
     std::string line;
     std::vector<std::vector<float> > parsedCsv;
     int i=0;
