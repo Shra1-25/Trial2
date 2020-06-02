@@ -59,10 +59,10 @@ int main(int argc, char* argv[]) {
     }
     std::cout<<"Reading X_data done."<<endl;
     
-    std::ifstream  data("Y_data.csv");
+    std::ifstream  data2("Y_data.csv");
     //std::string line;
     i_idx=0;
-    while(std::getline(data,line))
+    while(std::getline(data2,line))
     {
         std::stringstream lineStream(line);
         std::string cell;
