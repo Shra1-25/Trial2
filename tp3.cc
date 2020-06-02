@@ -61,13 +61,13 @@ int main(int argc, char* argv[]) {
     
     std::ifstream  data("Y_data.csv");
     std::string line;
-    int i_idx=0;
+    i_idx=0;
     while(std::getline(data,line))
     {
         std::stringstream lineStream(line);
         std::string cell;
         //std::vector<float> parsedRow;
-        int j_idx=0;
+        j_idx=0;
         
         while(std::getline(lineStream,cell,','))
         {
