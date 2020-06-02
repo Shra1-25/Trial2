@@ -10,7 +10,7 @@ using namespace std;
 int main(int argc, char* argv[]) {
     std::cout<<"Hello"<<endl;    
     
-    std::string graph_definition = "/home/cmsusr/CMSSW_11_0_1/src/Trial2/graph3.pb";
+    std::string graph_definition = "graph3.pb";
     Session* session;
     GraphDef graph_def;
     SessionOptions opts;
