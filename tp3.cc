@@ -39,34 +39,27 @@ int main(int argc, char* argv[]) {
     std::cout<<"Done1"<<endl;
     
     std::ifstream  data("X_data.csv");
-    //std::cout<<"Done12"<<endl;
     std::string line;
-    //std::cout<<"Done3"<<endl;
     int i_idx=0;
-    //std::cout<<"Done4 "<<i_idx<<endl;
     while(std::getline(data,line))
     {
-        std::cout<<"Done "<<line<<endl;
         std::stringstream lineStream(line);
         std::string cell;
         std::vector<float> parsedRow;
         int j_idx=0;
-        std::cout<<"Done "<<j_idx<<endl;
+        
         while(std::getline(lineStream,cell,','))
         {
             _XTensor(i_idx,j_idx)=std::stof(cell);
             parsedRow.push_back(std::stof(cell));
-            std::cout<<"Done "<<cell<<endl;
             j_idx++;
-            std::cout<<"Done "<<i_idx<<" "<<j_idx<<endl;
-            std::cout<<"Done "<<line<<endl;
         }
 
         //X_vec.push_back(parsedRow);
         std::cout<<i_idx<<" "<<parsedRow[0]<<" to "<<parsedRow[31]<<" Done "<<endl;
         i_idx++;
     }
-    std::cout<<"Done5"<<endl;
+    
     //_XTensor.setRandom();
     //std::copy_n(X_vec.begin(), X_vec.size(), _XTensor.flat<float>().data());
     _YTensor.setRandom();
