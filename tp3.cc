@@ -46,6 +46,7 @@ int main(int argc, char* argv[]) {
     std::cout<<"Done4 "<<i_idx<<endl;
     while(std::getline(data,line))
     {
+        std::cout<<"Done "<<line<<endl;
         std::stringstream lineStream(line);
         std::string cell;
         std::vector<float> parsedRow;
