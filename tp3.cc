@@ -58,6 +58,7 @@ int main(int argc, char* argv[]) {
         i_idx++;
     }
     std::cout<<"Reading X_data done."<<endl;
+    
     std::ifstream  data("Y_data.csv");
     std::string line;
     int i_idx=0;
