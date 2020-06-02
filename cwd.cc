@@ -16,6 +16,7 @@ std::string get_current_dir() {
    return current_working_dir;
 }
 
-main() {
+int main() {
    cout << get_current_dir() << endl;
+   return 0;
 }
