@@ -51,11 +51,15 @@ int main(int argc, char* argv[]) {
         std::string cell;
         std::vector<float> parsedRow;
         int j_idx=0;
+        std::cout<<"Done "<<j_idx<<endl;
         while(std::getline(lineStream,cell,','))
         {
             _XTensor(i_idx,j_idx)=std::stof(cell);
             parsedRow.push_back(std::stof(cell));
+            std::cout<<"Done "<<cell<<endl;
             j_idx++;
+            std::cout<<"Done "<<i_idx<<" "<<j_idx<<endl;
+            std::cout<<"Done "<<line<<endl;
         }
 
         //X_vec.push_back(parsedRow);
