@@ -88,14 +88,13 @@ int main(int argc, char* argv[]) {
     }
     //std::copy_n(X_vec.begin(), X_vec.size(), _XTensor.flat<float>().data());
     //_YTensor.setRandom();
-    for (int i = 0; i < 10; ++i) {
-        std::cout<<"Done3"<<endl;
-        TF_CHECK_OK(session->Run({{"x", x}/*, {"y", y}*/}, {"dense_2_out"}, {}, &outputs)); // Get cost
-        std::cout<<"Done4"<<endl;
-        float cost = outputs[0].matrix<float>()(0,0);
-        std::cout << "Output: " <<  cost << std::endl;
-        //TF_CHECK_OK(session->Run({{"x", x}, {"y", y}}, {}, {"train"}, nullptr)); // Train
-        outputs.clear();
+    std::cout<<"Done3"<<endl;
+    TF_CHECK_OK(session->Run({{"x", x}/*, {"y", y}*/}, {"dense_2_out"}, {}, &outputs)); // Get cost
+    std::cout<<"Done4"<<endl;
+    float cost = outputs[0].matrix<float>()(0,0);
+    std::cout << "Output: " <<  cost << std::endl;
+    //TF_CHECK_OK(session->Run({{"x", x}, {"y", y}}, {}, {"train"}, nullptr)); // Train
+    outputs.clear();
     }
 
     session->Close();
