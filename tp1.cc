@@ -95,7 +95,7 @@ int main(int argc, char* argv[]) {
     std::cout << "Output: " <<  cost << std::endl;
     //TF_CHECK_OK(session->Run({{"x", x}, {"y", y}}, {}, {"train"}, nullptr)); // Train
     outputs.clear();
-    }
+    
 
     session->Close();
     delete session;
