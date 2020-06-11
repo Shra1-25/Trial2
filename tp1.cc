@@ -31,12 +31,12 @@ int main(int argc, char* argv[]) {
     // Initialize our variables
     //TF_CHECK_OK(session->Run({}, {}, {"init_all_vars_op"}, nullptr));
     std::cout<<"Done2"<<endl;
-    Tensor temp(DT_FLOAT, TensorShape({28, 28}));
+    Tensor tmp(DT_FLOAT, TensorShape({28, 28}));
     
     //Tensor x(DT_FLOAT, TensorShape({100, 32}));
     //Tensor y(DT_FLOAT, TensorShape({100, 8}));
     //std::copy_n(X_vec.begin(), X_vec.size(), x.flat<float>().data());
-    auto _XTensor = temp.matrix<float>();
+    auto _XTensor = tmp.matrix<float>();
     //auto _YTensor = y.matrix<float>();
     
     /*std::ifstream  data("X_data.csv");
