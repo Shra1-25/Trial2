@@ -29,7 +29,7 @@ int main(int argc, char* argv[]) {
     TF_CHECK_OK(session->Create(graph_def));
     std::cout<<"Done1"<<endl;
     // Initialize our variables
-    TF_CHECK_OK(session->Run({}, {}, {"init_all_vars_op"}, nullptr));
+    //TF_CHECK_OK(session->Run({}, {}, {"init_all_vars_op"}, nullptr));
     std::cout<<"Done2"<<endl;
     Tensor x(DT_FLOAT, TensorShape({1,28, 28,1}));
     
