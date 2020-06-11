@@ -88,8 +88,8 @@ int main(int argc, char* argv[]) {
         std::cout<<"Done3"<<endl;
         TF_CHECK_OK(session->Run({{"x", x}/*, {"y", y}*/}, {"dense_2_out"}, {}, &outputs)); // Get cost
         std::cout<<"Done4"<<endl;
-        float cost = outputs[0].scalar<float>()(0);
-        std::cout << "Cost: " <<  cost << std::endl;
+        float cost = outputs[0].vector<float>()(0);
+        std::cout << "Output: " <<  cost << std::endl;
         //TF_CHECK_OK(session->Run({{"x", x}, {"y", y}}, {}, {"train"}, nullptr)); // Train
         outputs.clear();
     }
