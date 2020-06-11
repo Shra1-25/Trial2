@@ -10,7 +10,7 @@ using namespace std;
 int main(int argc, char* argv[]) {
     std::cout<<"Hello"<<endl;    
     
-    std::string graph_definition = "my_model.pb";
+    std::string graph_definition = "output_graph.pb";
     Session* session;
     GraphDef graph_def;
     SessionOptions opts;
