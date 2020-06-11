@@ -27,10 +27,11 @@ int main(int argc, char* argv[]) {
 
     // Load graph into session
     TF_CHECK_OK(session->Create(graph_def));
-
+    std::cout<<"Done1"<<endl;
     // Initialize our variables
     TF_CHECK_OK(session->Run({}, {}, {"init_all_vars_op"}, nullptr));
-    Tensor x(DT_FLOAT, TensorShape({28, 28,1}));
+    std::cout<<"Done2"<<endl;
+    Tensor x(DT_FLOAT, TensorShape({1,28, 28,1}));
     
     //Tensor x(DT_FLOAT, TensorShape({100, 32}));
     //Tensor y(DT_FLOAT, TensorShape({100, 8}));
@@ -84,8 +85,9 @@ int main(int argc, char* argv[]) {
     //std::copy_n(X_vec.begin(), X_vec.size(), _XTensor.flat<float>().data());
     //_YTensor.setRandom();
     for (int i = 0; i < 10; ++i) {
-        
+        std::cout<<"Done3"<<endl;
         TF_CHECK_OK(session->Run({{"conv2d_1_input", x}/*, {"y", y}*/}, {"dense_2/Softmax"}, {}, &outputs)); // Get cost
+        std::cout<<"Done4"<<endl;
         float cost = outputs[0].scalar<float>()(0);
         std::cout << "Cost: " <<  cost << std::endl;
         //TF_CHECK_OK(session->Run({{"x", x}, {"y", y}}, {}, {"train"}, nullptr)); // Train
